@@ -4,12 +4,14 @@ package leaderboard.leaderboard;
 
 import "gogoproto/gogo.proto";
 import "leaderboard/leaderboard/params.proto";
+import "leaderboard/leaderboard/player_info.proto";
 
 option go_package = "leaderboard/x/leaderboard/types";
 
 // GenesisState defines the leaderboard module's genesis state.
 message GenesisState {
-  Params params  = 1 [(gogoproto.nullable) = false];
-  string port_id = 2;
+           Params     params         = 1 [(gogoproto.nullable) = false];
+           string     port_id        = 2;
+  repeated PlayerInfo playerInfoList = 3 [(gogoproto.nullable) = false];
 }
 
