@@ -5,6 +5,7 @@ package leaderboard.leaderboard;
 import "gogoproto/gogo.proto";
 import "leaderboard/leaderboard/params.proto";
 import "leaderboard/leaderboard/player_info.proto";
+import "leaderboard/leaderboard/board.proto";
 
 option go_package = "leaderboard/x/leaderboard/types";
 
@@ -13,5 +14,6 @@ message GenesisState {
            Params     params         = 1 [(gogoproto.nullable) = false];
            string     port_id        = 2;
   repeated PlayerInfo playerInfoList = 3 [(gogoproto.nullable) = false];
+           Board      board          = 4;
 }
 

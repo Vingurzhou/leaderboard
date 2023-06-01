@@ -3,7 +3,7 @@
 
 ## Get started
 
-```
+```shell
 ignite chain serve
 ```
 

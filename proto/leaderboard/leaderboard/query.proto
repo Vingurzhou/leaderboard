@@ -7,6 +7,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "leaderboard/leaderboard/params.proto";
 import "leaderboard/leaderboard/player_info.proto";
+import "leaderboard/leaderboard/board.proto";
 
 option go_package = "leaderboard/x/leaderboard/types";
 
@@ -26,6 +27,12 @@ service Query {
   }
   rpc PlayerInfoAll (QueryAllPlayerInfoRequest) returns (QueryAllPlayerInfoResponse) {
     option (google.api.http).get = "/leaderboard/leaderboard/player_info";
+  
+  }
+  
+  // Queries a Board by index.
+  rpc Board (QueryGetBoardRequest) returns (QueryGetBoardResponse) {
+    option (google.api.http).get = "/leaderboard/leaderboard/board";
   
   }
 }
@@ -54,5 +61,11 @@ message QueryAllPlayerInfoRequest {
 message QueryAllPlayerInfoResponse {
   repeated PlayerInfo                             playerInfo = 1 [(gogoproto.nullable) = false];
            cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryGetBoardRequest {}
+
+message QueryGetBoardResponse {
+  Board Board = 1 [(gogoproto.nullable) = false];
 }
 
