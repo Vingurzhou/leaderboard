@@ -1,0 +1,7 @@
+syntax = "proto3";
+package leaderboard.leaderboard;
+
+option go_package = "leaderboard/x/leaderboard/types";
+
+// Msg defines the Msg service.
+service Msg {}
